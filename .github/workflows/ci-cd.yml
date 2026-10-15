@@ -68,13 +68,24 @@ jobs:
 
       - name: Package application
         run: |
+          mkdir -p "$RUNNER_TEMP/meseg-package"
+
           tar \
-            --exclude=.git \
-            --exclude=node_modules \
-            --exclude=.next \
-            --exclude=.env \
-            --exclude='.env.*' \
-            -czf application.tar.gz .
+            --exclude='./.git' \
+            --exclude='./node_modules' \
+            --exclude='./.next' \
+            --exclude='./.env' \
+            --exclude='./.env.*' \
+            -cf - . | tar -xf - -C "$RUNNER_TEMP/meseg-package"
+
+          tar \
+            --exclude='./.git' \
+            --exclude='./node_modules' \
+            --exclude='./.next' \
+            --exclude='./.env' \
+            --exclude='./.env.*' \
+            -czf application.tar.gz \
+            -C "$RUNNER_TEMP/meseg-package" .
 
       - name: Transfer application
         env:
