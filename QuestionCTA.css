@@ -1,0 +1,104 @@
+/* ==========================================================================
+   QUESTION CTA COMPONENT
+   Contact inquiry section for About page
+   ========================================================================== */
+
+.question-cta-section {
+  background-color: #234F1E;
+  padding: var(--space-80) 0;
+}
+
+.question-cta-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-48);
+}
+
+.question-cta-content {
+  flex: 1;
+}
+
+.question-cta-subtitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: #03AC13;
+  margin: 0 0 var(--space-12) 0;
+  font-family: var(--font-manrope);
+  letter-spacing: 0.3px;
+  text-transform: none;
+}
+
+.question-cta-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--color-text-light);
+  margin: 0;
+  font-family: var(--font-playfair);
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  max-width: 500px;
+}
+
+.question-cta-button {
+  padding: var(--space-16) var(--space-32);
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  transition: all 250ms ease-in-out;
+  white-space: nowrap;
+  
+  background-color: #138a1f;
+  color: var(--color-text-light);
+  
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.question-cta-button:hover {
+  background-color: #028A0F;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(3, 172, 19, 0.25);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .question-cta-section {
+    padding: var(--space-64) 0;
+  }
+
+  .question-cta-container {
+    gap: var(--space-40);
+  }
+
+  .question-cta-title {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .question-cta-section {
+    padding: var(--space-48) 0;
+  }
+
+  .question-cta-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-32);
+  }
+
+  .question-cta-title {
+    font-size: 32px;
+  }
+
+  .question-cta-subtitle {
+    font-size: 14px;
+  }
+
+  .question-cta-button {
+    width: 100%;
+  }
+}
