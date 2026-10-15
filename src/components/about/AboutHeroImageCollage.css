@@ -1,0 +1,181 @@
+/* About Hero Image Collage - Layered Design */
+
+.hero-collage {
+  width: 100%;
+  padding: 0;
+  background: transparent;
+  overflow: hidden;
+}
+
+/* The positioning context for all three layers */
+.hero-collage__canvas {
+  position: relative;
+  width: 100%;
+  height: clamp(320px, 40vw, 480px);
+}
+
+/* Shared image styles */
+.hero-collage__image {
+  position: absolute;
+  overflow: hidden;
+  background: #dce3ed;
+}
+
+.hero-collage__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Layer 1: image at the upper-right */
+.hero-collage__image--back {
+  top: 0;
+  right: 0;
+  width: 58%;
+  height: 72%;
+  z-index: 1;
+  opacity: 0;
+  animation: backImageEnter 900ms cubic-bezier(0.22, 1, 0.36, 1) 400ms forwards;
+}
+
+/* Layer 2: blue rectangle behind the front image */
+.hero-collage__accent {
+  position: absolute;
+  top: 17%;
+  left: 20%;
+  width: 37%;
+  height: 75%;
+  background: #094034;
+  z-index: 2;
+  transform-origin: center;
+  opacity: 0;
+  animation: accentEnter 700ms cubic-bezier(0.22, 1, 0.36, 1) 550ms forwards;
+}
+
+/* Layer 3: image at the lower-left */
+.hero-collage__image--front {
+  left: 0;
+  bottom: 0;
+  width: 47%;
+  height: 76%;
+  z-index: 3;
+  opacity: 0;
+  animation: frontImageEnter 950ms cubic-bezier(0.22, 1, 0.36, 1) 700ms forwards;
+}
+
+/* Layer 4: base image at the bottom center, highest z-index */
+.hero-collage__image--base {
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 52%;
+  height: 68%;
+  z-index: 4;
+  opacity: 0;
+  animation: baseImageEnter 900ms cubic-bezier(0.22, 1, 0.36, 1) 850ms forwards;
+}
+
+/* Animations */
+@keyframes backImageEnter {
+  from {
+    opacity: 0;
+    transform: translate(55px, -12px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes accentEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.82);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes frontImageEnter {
+  from {
+    opacity: 0;
+    transform: translate(-35px, 45px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .hero-collage__canvas {
+    height: clamp(280px, 50vw, 360px);
+  }
+
+  .hero-collage__image--back {
+    width: 65%;
+    height: 64%;
+  }
+
+  .hero-collage__accent {
+    left: 16%;
+    top: 19%;
+    width: 43%;
+    height: 70%;
+  }
+
+  .hero-collage__image--front {
+    width: 55%;
+    height: 69%;
+  }
+
+  .hero-collage__image--base {
+    width: 58%;
+    height: 62%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .hero-collage__canvas {
+    height: clamp(240px, 80vw, 320px);
+  }
+
+  .hero-collage__image--back {
+    width: 72%;
+    height: 58%;
+  }
+
+  .hero-collage__accent {
+    top: 22%;
+    left: 13%;
+    width: 52%;
+    height: 66%;
+  }
+
+  .hero-collage__image--front {
+    width: 65%;
+    height: 64%;
+  }
+
+  .hero-collage__image--base {
+    width: 68%;
+    height: 58%;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .hero-collage__image--back,
+  .hero-collage__accent,
+  .hero-collage__image--front,
+  .hero-collage__image--base {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

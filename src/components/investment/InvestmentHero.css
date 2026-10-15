@@ -1,0 +1,809 @@
+/* ==========================================================================
+   INVESTMENT HERO SECTION
+   Meseg Invest Platform Introduction + How It Works
+   ========================================================================== */
+
+.investment-hero-section {
+  background-color: var(--color-brand-subtle);
+  padding: var(--space-48) 0;
+}
+
+.investment-hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-48);
+}
+
+/* ===== FIRST PART: App Introduction ===== */
+
+.investment-hero-content-section {
+  width: 100%;
+}
+
+.investment-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-40);
+  align-items: center;
+  width: 100%;
+}
+
+/* Left: Text Content */
+.investment-hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.investment-hero-title {
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--color-brand);
+  margin: 0 0 var(--space-12) 0;
+  font-family: var(--font-playfair);
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+
+.investment-hero-title--desktop {
+  display: block;
+}
+
+.investment-hero-title--mobile {
+  display: none;
+  align-self: flex-start;
+  width: 100%;
+}
+
+.investment-hero-caption {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  margin: 0;
+  font-family: var(--font-manrope);
+  line-height: 1.6;
+  max-width: 400px;
+}
+
+/* Right: Image */
+.investment-hero-image-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  width: 100%;
+  gap: var(--space-16);
+}
+
+.investment-hero-image {
+  width: 100%;
+  height: auto;
+  max-width: 350px;
+  object-fit: contain;
+  align-self: center;
+}
+
+/* ===== SECOND PART: How It Works ===== */
+
+.investment-how-works-grid {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-40);
+  align-items: flex-start;
+  width: 100%;
+  margin-top: var(--space-40);
+}
+
+/* Left: Process Steps */
+.investment-process-column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.investment-process-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-brand);
+  margin: 0 0 var(--space-32) 0;
+  font-family: var(--font-playfair);
+  letter-spacing: -0.5px;
+}
+
+.investment-steps-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-12);
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  position: relative;
+}
+
+.investment-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+  position: relative;
+}
+
+.investment-step-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-brand);
+  color: var(--color-text-light);
+  font-size: 16px;
+  font-weight: 700;
+  font-family: var(--font-playfair);
+  flex-shrink: 0;
+}
+
+.investment-step-text {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-main);
+  margin: 0;
+  font-family: var(--font-manrope);
+  line-height: 1.4;
+  text-align: center;
+}
+
+.investment-step--last .investment-step-circle::after {
+  display: none;
+}
+
+/* Connecting lines between steps */
+.investment-step:not(.investment-step--last)::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: calc(100% + var(--space-12));
+  height: 2px;
+  background-color: var(--color-brand);
+  transform: translateX(20px);
+}
+
+/* Right: Coming Soon Badge */
+.investment-coming-soon-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--space-24);
+  flex: 1;
+}
+
+.investment-coming-soon-badge {
+  padding: var(--space-24) var(--space-32);
+  border-radius: 24px;
+  background-color: var(--color-bg-card);
+  color: var(--color-brand);
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  font-family: var(--font-manrope);
+  border: 2px solid var(--color-accent-amber);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .investment-hero-section {
+    padding: var(--space-48) 0;
+  }
+
+  .investment-hero-container {
+    gap: var(--space-40);
+  }
+
+  .investment-hero-grid {
+    gap: var(--space-32);
+  }
+
+  .investment-hero-title {
+    font-size: 36px;
+  }
+
+  .investment-hero-title--desktop {
+    display: none;
+  }
+
+  .investment-hero-title--mobile {
+    display: block;
+    margin-bottom: var(--space-20);
+  }
+
+  .investment-hero-caption {
+    font-size: 16px;
+  }
+
+  .investment-how-works-grid {
+    gap: var(--space-32);
+    flex-direction: column;
+  }
+
+  .investment-process-column {
+    flex: 1;
+  }
+
+  .investment-coming-soon-column {
+    flex: 1;
+  }
+
+  .investment-process-title {
+    font-size: 28px;
+    margin-bottom: var(--space-24);
+  }
+
+  .investment-steps-wrapper {
+    gap: var(--space-16);
+    flex-direction: column;
+  }
+
+  .investment-step {
+    flex: 1 1 100%;
+    min-width: auto;
+  }
+
+  .investment-step-circle {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .investment-step-text {
+    font-size: 11px;
+  }
+
+  .investment-step:not(.investment-step--last)::after {
+    display: none;
+  }
+
+  .investment-coming-soon-badge {
+    padding: var(--space-20) var(--space-24);
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .investment-hero-section {
+    padding: var(--space-48) 0;
+  }
+
+  .investment-hero-container {
+    gap: var(--space-48);
+  }
+
+  .investment-hero-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-40);
+  }
+
+  .investment-hero-title {
+    font-size: 40px;
+  }
+
+  .investment-hero-title--desktop {
+    display: none;
+  }
+
+  .investment-hero-title--mobile {
+    display: block;
+    margin-bottom: var(--space-20);
+  }
+
+  .investment-hero-caption {
+    font-size: 16px;
+    max-width: none;
+  }
+
+  .investment-hero-image-wrapper {
+    order: -1;
+  }
+
+  .investment-how-works-grid {
+    gap: var(--space-40);
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .investment-process-column {
+    align-items: flex-start;
+  }
+
+  .investment-coming-soon-column {
+    align-items: flex-start;
+  }
+
+  .investment-process-title {
+    font-size: 32px;
+    margin-bottom: var(--space-32);
+  }
+
+  .investment-steps-wrapper {
+    flex-direction: column;
+    gap: var(--space-16);
+  }
+
+  .investment-step {
+    flex: 1 1 100%;
+    min-width: auto;
+  }
+
+  .investment-step-circle {
+    width: 38px;
+    height: 38px;
+    font-size: 14px;
+  }
+
+  .investment-step-text {
+    font-size: 12px;
+  }
+
+  .investment-step:not(.investment-step--last)::after {
+    display: none;
+  }
+
+  .investment-coming-soon-column {
+    min-height: auto;
+    width: 100%;
+  }
+
+  .investment-coming-soon-badge {
+    padding: var(--space-24) var(--space-32);
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .investment-hero-section {
+    padding: var(--space-40) 0;
+  }
+
+  .investment-hero-container {
+    gap: var(--space-40);
+  }
+
+  .investment-hero-grid {
+    gap: var(--space-32);
+  }
+
+  .investment-hero-title {
+    font-size: 32px;
+  }
+
+  .investment-hero-title--desktop {
+    display: none;
+  }
+
+  .investment-hero-title--mobile {
+    display: block;
+    margin-bottom: var(--space-16);
+  }
+
+  .investment-hero-caption {
+    font-size: 14px;
+  }
+
+  .investment-hero-image {
+    max-width: 100%;
+  }
+
+  .investment-process-title {
+    font-size: 28px;
+    margin-bottom: var(--space-24);
+  }
+
+  .investment-how-works-grid {
+    align-items: stretch;
+  }
+
+  .investment-process-column {
+    align-items: flex-start;
+  }
+
+  .investment-coming-soon-column {
+    align-items: flex-start;
+  }
+
+  .investment-steps-wrapper {
+    gap: var(--space-12);
+    flex-direction: column;
+  }
+
+  .investment-step {
+    flex: 1 1 100%;
+    min-width: auto;
+  }
+
+  .investment-step-circle {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .investment-step-text {
+    font-size: 11px;
+  }
+
+  .investment-step:not(.investment-step--last)::after {
+    display: none;
+  }
+
+  .investment-coming-soon-badge {
+    padding: var(--space-20) var(--space-24);
+    font-size: 14px;
+    border-radius: 20px;
+  }
+}
+
+
+/* =========================================
+   INVESTMENT HERO — RESPONSIVE REFINEMENTS
+========================================= */
+
+/* Keep the text and image columns contained */
+.investment-hero-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(24px, 3vw, 40px);
+}
+
+.investment-hero-content,
+.investment-hero-image-wrapper,
+.investment-process-column,
+.investment-coming-soon-column {
+  min-width: 0;
+}
+
+/* Reduce the gap before How It Works */
+.investment-how-works-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+/* =========================================
+   HOW IT WORKS — DESKTOP
+========================================= */
+
+.investment-process-title {
+  margin-bottom: 20px;
+}
+
+.investment-steps-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  gap: 8px;
+  width: 100%;
+}
+
+.investment-step {
+  position: relative;
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  text-align: center;
+}
+
+/* Horizontal connectors */
+.investment-step:not(.investment-step--last)::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 19px;
+  left: calc(50% + 20px);
+  width: calc(100% - 32px);
+  height: 2px;
+  background-color: var(--color-brand);
+  transform: none;
+  z-index: 0;
+}
+
+.investment-step-circle {
+  position: relative;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+}
+
+.investment-step-text {
+  max-width: 130px;
+  font-size: 12px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+/* =========================================
+   COMING SOON + CTA
+========================================= */
+
+.investment-coming-soon-column {
+  display: flex;
+  flex-direction: row;
+  margin: 22px;
+  gap: 12px;
+  
+}
+
+.investment-coming-soon-badge {
+  padding: 10px 22px;
+  border-radius: 16px;
+  white-space: nowrap;
+  min-height: 44px;
+}
+
+.investment-learn-more-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 10px 22px;
+  border: 1px solid var(--color-brand);
+  border-radius: 8px;
+  background: var(--color-brand);
+  color: var(--color-text-light);
+  font-family: var(--font-manrope);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: none;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.investment-learn-more-btn:hover {
+  background: transparent;
+  color: var(--color-brand);
+  transform: translateY(-1px);
+}
+
+.investment-learn-more-btn:focus-visible {
+  outline: 3px solid var(--color-brand);
+  outline-offset: 3px;
+}
+
+/* =========================================
+   MEDIUM SCREENS — TABLETS
+========================================= */
+
+@media (max-width: 1024px) {
+  .investment-hero-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+    gap: 24px;
+  }
+
+  .investment-hero-title {
+    font-size: clamp(30px, 3.5vw, 36px);
+  }
+
+  .investment-how-works-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    margin: 20px;
+  }
+
+  .investment-process-title {
+    font-size: 26px;
+    margin-bottom: 18px;
+  }
+
+  /* Align each step horizontally with its label */
+  .investment-steps-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .investment-step {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 14px;
+    flex: none;
+    min-height: 48px;
+    padding: 4px 0;
+    text-align: left;
+  }
+
+  .investment-step-circle {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    font-size: 14px;
+  }
+
+  .investment-step-text {
+    max-width: none;
+    font-size: 13px;
+    text-align: left;
+    overflow-wrap: normal;
+  }
+
+  /* Vertical connector between numbered circles */
+  .investment-step:not(.investment-step--last)::after {
+    display: block;
+    top: 38px;
+    bottom: -4px;
+    left: 16px;
+    width: 2px;
+    height: auto;
+    transform: none;
+  }
+
+  .investment-coming-soon-column {
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 12px;
+  }
+
+  .investment-coming-soon-badge {
+    font-size: 13px;
+    padding: 12px 16px;
+  }
+
+  .investment-learn-more-btn {
+    min-height: 42px;
+    padding: 9px 16px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .investment-hero-section {
+    padding: var(--space-40) 0;
+  }
+
+  .investment-hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .investment-hero-image-wrapper {
+    order: -1;
+  }
+
+  .investment-hero-image {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+  }
+
+  .investment-hero-title {
+    font-size: clamp(30px, 7vw, 40px);
+  }
+
+  .investment-hero-caption {
+    font-size: 15px;
+  }
+
+  .investment-how-works-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    margin: 20px;
+  }
+
+  .investment-process-title {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+
+  .investment-steps-wrapper {
+    gap: 0;
+  }
+
+  .investment-step {
+    min-height: 50px;
+    gap: 12px;
+  }
+
+  .investment-step-circle {
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
+  }
+
+  .investment-step:not(.investment-step--last)::after {
+    top: 40px;
+    left: 17px;
+  }
+
+  .investment-step-text {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .investment-coming-soon-column {
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .investment-hero-section {
+    padding: var(--space-32, 32px) 0;
+  }
+
+  .investment-hero-grid {
+    gap: 20px;
+  }
+
+  .investment-hero-title {
+    font-size: 30px;
+    letter-spacing: -0.5px;
+  }
+
+  .investment-hero-caption {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .investment-how-works-grid {
+    margin: 20px;
+    gap: 16px;
+  }
+
+  .investment-process-title {
+    font-size: 25px;
+    margin-bottom: 14px;
+  }
+
+  .investment-step {
+    min-height: 48px;
+  }
+
+  .investment-step-text {
+    font-size: 12px;
+  }
+
+  .investment-coming-soon-column {
+    width: 85%;
+    margin: 18px;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .investment-coming-soon-badge,
+  .investment-learn-more-btn {
+    width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .investment-coming-soon-badge {
+    padding: 14px 16px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .investment-learn-more-btn {
+    transition: none;
+  }
+}
