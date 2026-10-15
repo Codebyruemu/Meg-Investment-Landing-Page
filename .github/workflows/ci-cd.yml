@@ -1,12 +1,17 @@
-
 name: Meseg Capital Deployment
 
 on:
   push:
     branches:
       - main
-
   workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: meseg-production-deploy
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -29,3 +34,118 @@ jobs:
       - name: Build application
         run: npm run build
 
+  deploy:
+    name: Deploy to EC2
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build application
+        run: npm run build
+
+      - name: Configure SSH
+        env:
+          EC2_SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$EC2_SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H "$EC2_HOST" >> ~/.ssh/known_hosts
+
+      - name: Package application
+        run: |
+          tar \
+            --exclude=.git \
+            --exclude=node_modules \
+            --exclude=.next \
+            --exclude=.env \
+            --exclude='.env.*' \
+            -czf application.tar.gz .
+
+      - name: Transfer application
+        env:
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+          EC2_USER: ${{ secrets.EC2_USER }}
+        run: |
+          scp -i ~/.ssh/deploy_key \
+            application.tar.gz \
+            "$EC2_USER@$EC2_HOST:/home/ec2-user/application.tar.gz"
+
+      - name: Deploy with backup and rollback
+        env:
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+          EC2_USER: ${{ secrets.EC2_USER }}
+        run: |
+          ssh -i ~/.ssh/deploy_key \
+            "$EC2_USER@$EC2_HOST" 'bash -s' <<'REMOTE'
+          set -Eeuo pipefail
+
+          APP="/html"
+          BASE="/home/ec2-user"
+          STAMP="$(date +%Y%m%d-%H%M%S)"
+          RELEASE="$BASE/meginvestment-release-$STAMP"
+          BACKUP="$BASE/meginvestment-backup-$STAMP"
+          ARCHIVE="$BASE/application.tar.gz"
+
+          test -f "$APP/.env.production"
+          test -f "$APP/package.json"
+          test -f "$ARCHIVE"
+
+          mkdir -p "$RELEASE"
+          tar -xzf "$ARCHIVE" -C "$RELEASE"
+
+          # Use the existing production environment for the build.
+          cp "$APP/.env.production" "$RELEASE/.env.production"
+          chmod 600 "$RELEASE/.env.production"
+
+          cd "$RELEASE"
+          npm ci
+          npm run build
+
+          # Preserve the current application before modifying it.
+          cp -a "$APP" "$BACKUP"
+
+          rollback() {
+            rc=$?
+            trap - ERR
+            echo "Deployment failed. Restoring previous application..."
+            if [ -d "$BACKUP" ]; then
+              rsync -a --delete "$BACKUP/" "$APP/"
+              pm2 restart meginvestment --update-env || true
+            fi
+            exit "$rc"
+          }
+          trap rollback ERR
+
+          # Keep the existing production environment file untouched.
+          rsync -a --delete \
+            --exclude='.env*' \
+            "$RELEASE/" "$APP/"
+
+          cd "$APP"
+          pm2 restart meginvestment --update-env
+
+          # Confirm the process remains online.
+          sleep 5
+          pm2 describe meginvestment | grep -q 'online'
+
+          trap - ERR
+          rm -f "$ARCHIVE"
+
+          echo "Deployment successful."
+          echo "Backup retained at: $BACKUP"
+          REMOTE
