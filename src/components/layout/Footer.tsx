@@ -16,9 +16,14 @@ export default function Footer({ settings }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
   if (
-    ["/", "/about", "/contact", "/terms", "/investment-opportunities"].includes(
-      pathname,
-    )
+    [
+      "/",
+      "/about",
+      "/contact",
+      "/terms",
+      "/investment-opportunities",
+      "/leadership",
+    ].includes(pathname)
   ) {
     return (
       <footer

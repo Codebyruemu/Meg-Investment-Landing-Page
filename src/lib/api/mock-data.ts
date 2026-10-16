@@ -33,7 +33,7 @@ export const defaultTeamMembers: TeamMember[] = [
   {
     id: "olumuyiwa-o-matthew",
     name: "Dr Olumuyiwa O. Matthew",
-    role: "Business Strategy and Development (UK)",
+    role: `Director\nBusiness Strategy & Development`,
     bio: "Brings over 17 years of experience in business strategy, technology, and organisational development, with extensive UK and international exposure. Provides strategic leadership at Meseg Capital Investment Ltd, supporting business growth, digital transformation, operational improvement, and strategic development within the company's oil and gas sector focus.",
     image: "/images/about/olumuyiwa-o-matthew.jpg",
   },
@@ -146,7 +146,7 @@ export const mockTerms: Terms[] = [
     id: "terms_02_kyc",
     title: "2. KYC & Verification",
     text: `Investors are required to provide information and documents reasonably necessary for identity verification and applicable Know Your Customer (KYC) and anti-money laundering (AML) procedures.
-          Depending on applicable requirements, this may include government-issued identification, NIN, BVN, proof of address, personal information, and supporting documentation.
+          Depending on applicable requirements, this may include government-issued identification, NIN, proof of address, personal information, and supporting documentation.
           An investment account may remain restricted until required verification has been completed and approved.
           Investors are responsible for ensuring that information supplied to the platform is accurate, current, and complete. False, misleading, or fraudulent information may result in suspension or termination.`
   },
@@ -277,12 +277,12 @@ The version of the terms accepted by an investor, together with the date and tim
   {
     id: "terms_14_acceptance",
     title: "14. Terms Acceptance",
-    text: `By creating an account, completing registration, or proceeding with an investment through the MEIM Investment Management Platform, the user confirms that they have read and understood the applicable Service Terms and agree to be bound by them.
+    text: `By creating an account, completing registration, or proceeding with an investment through the MEIM Investment Management Platform, the users confirm that they have read and understood the applicable Service Terms and agree to be bound by them.
 
 Before making an investment, the investor is required to accept the applicable terms and conditions presented by the platform. Acceptance may be recorded together with the relevant terms version, investor account, date, and time.
 
 If an investor does not agree with these Service Terms or the applicable investment terms, they should not proceed with the relevant service or investment transaction.
 
-For questions concerning these Service Terms, investments, refunds, early withdrawal, or account matters, contact: support@mesegcapitalinvestment.com.`
+For questions concerning these Service Terms, investments, refunds, early withdrawal, or account matters, contact: contact@mesegcapitalinvestment.com.`
   },
 ];

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || "https://mesegcapital.com",
   ),
-  title: "MESEGCO Capital Investment — Invest in Energy. Build Lasting Value.",
+  title: "Meseg Capital Investment — Invest in Energy. Build Lasting Value.",
   description:
     "Structured investment opportunities within Nigeria's refined petroleum products distribution sector, without the need for industry expertise.",
 };
