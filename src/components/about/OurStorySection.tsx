@@ -18,12 +18,12 @@ const storyItems: StoryItem[] = [
   {
     title: "Our Mission",
     description:
-      "Our mission is to provide reliable, high-quality services through professionalism, innovation, and a commitment to meeting the needs of our clients.",
+      "To deliver high-quality, reliable, and resilient solutions driven by innnovation, empathy, and absolute professionalism; consistently exceeding client expectations and meeting their evolving needs.",
   },
   {
     title: "Our Vision",
     description:
-      "Our vision is to become a trusted leader in our industry, recognized for excellence, integrity, and sustainable growth.",
+      "To set the benchmark for industry leadership through strategic partnership, driven by a commitment to operational excellence, ethical integrity, and sustainable long-term value.",
   },
 ];
 

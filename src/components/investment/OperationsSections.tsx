@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { GrowthChartIcon } from "./InvestmentIcons";
+import FutureProjects from "./FutureProject";
 
 type Operation = {
   id: string;
@@ -22,14 +23,14 @@ const operations: Operation[] = [
     name: "Poultry\nInvestment",
     description:
       "Integrated poultry operations including cold room storage, supply chain services and practical training for sustainable growth.",
-    image: "operation-poultry-img-1.jpg",
+    image: "operation-poultry-img-1.jpeg",
   },
   {
     id: "fish-farm",
     name: "Fish Farm\nSettlement",
     description:
       "Modern fish farming systems designed for efficient production and consistent supply.",
-    image: "operation-fish.png",
+    image: "project-fish.jpeg",
   },
   {
     id: "real-estate",
@@ -61,7 +62,7 @@ const projects: Operation[] = [
     status: "IN PROGRESS",
     description:
       "A fleet of delivery trucks and tankers to improve logistics, ensure timely distribution and expand our reach across the country.",
-    image: "project-delivery.png",
+    image: "project-delivery.jpeg",
   },
   {
     id: "retail-fuel",
@@ -69,7 +70,7 @@ const projects: Operation[] = [
     status: "PLANNED",
     description:
       "A network of retail fuel stations to bring our quality products closer to more communities and customers.",
-    image: "project-retail.png",
+    image: "project-fuel-station.jpeg",
   },
   {
     id: "water-factory",
@@ -77,7 +78,7 @@ const projects: Operation[] = [
     status: "PLANNED",
     description:
       "A table water factory to provide safe, high-quality drinking water for homes, businesses and communities.",
-    image: "project-water.png",
+    image: "project-water.jpeg",
   },
 ];
 
@@ -144,6 +145,7 @@ export default function OperationsSections() {
         aria-labelledby="future-projects-title"
       >
         <div className="investment-container">
+          {/*
           <div className="operations-section-header">
             <p className="operations-eyebrow">OUR VISION FOR TOMORROW</p>
             <h2 id="future-projects-title">What We Are Building Towards</h2>
@@ -157,7 +159,9 @@ export default function OperationsSections() {
             {projects.map((item) => (
               <OperationCard key={item.id} item={item} future />
             ))}
-          </div>
+          </div> */}
+          <FutureProjects />
+
           <div className="operations-growth-callout">
             <div>
               <h3>Let’s Grow Together</h3>

@@ -1,0 +1,366 @@
+
+/* =========================================
+   FUTURE PROJECTS
+========================================= */
+
+.future-projects {
+  width: 100%;
+  overflow: hidden;
+  background: #f2f2f2;
+  color: #fff;
+}
+
+/* =========================================
+   HERO BACKGROUND
+========================================= */
+
+.future-projects-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 20px 16px 12px;
+  background: #151a17;
+}
+
+.future-projects-background {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: url("/images/investment/project-office.png");
+  background-position: center;
+  background-size: cover;
+  transform: scale(1.02);
+}
+
+.future-projects-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    rgb(0 0 0 / 78%),
+    rgb(0 0 0 / 58%),
+    rgb(0 0 0 / 78%)
+  );
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+.future-projects-hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 28px;
+  text-align: center;
+}
+
+.future-projects-eyebrow {
+  margin: 0 0 12px;
+  color: #b5dc9b;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  line-height: 1.5;
+}
+
+.future-projects-hero-content h2 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.7px;
+}
+
+/* =========================================
+   CAROUSEL
+========================================= */
+
+.future-projects-carousel {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.future-projects-track {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  width: 100%;
+  animation: futureProjectsFadeIn 450ms ease both;
+}
+
+.future-project-card {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.future-project-card-image {
+  position: relative;
+  width: 100%;
+  height: clamp(150px, 18vw, 235px);
+  overflow: hidden;
+  background: #303630;
+}
+
+.future-project-card-image img {
+  object-fit: cover;
+  transition: transform 500ms ease;
+}
+
+.future-project-card:hover .future-project-card-image img {
+  transform: scale(1.06);
+}
+
+.future-project-card-overlay {
+  position: absolute;
+  inset: 0;
+  display: none;
+}
+
+.future-project-card h3 {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  left: 12px;
+  z-index: 1;
+  margin: 0;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* =========================================
+   CAROUSEL CONTROLS
+========================================= */
+
+.future-projects-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.future-projects-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid rgb(255 255 255 / 45%);
+  border-radius: 50%;
+  background: transparent;
+  color: #fff;
+  font-size: 17px;
+  cursor: pointer;
+  transition:
+    background 180ms ease,
+    color 180ms ease;
+}
+
+.future-projects-arrow:hover {
+  background: #a7d58a;
+  border-color: #a7d58a;
+  color: #142014;
+}
+
+.future-projects-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.future-projects-dot {
+  width: 22px;
+  height: 3px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: rgb(255 255 255 / 45%);
+  cursor: pointer;
+  transition:
+    width 200ms ease,
+    background 200ms ease;
+}
+
+.future-projects-dot.is-active {
+  width: 32px;
+  background: #a7d58a;
+}
+
+/* =========================================
+   INITIATIVES
+========================================= */
+
+.future-projects-initiatives {
+  width: 100%;
+  padding: 48px 24px 54px;
+  background: #f2f2f2;
+  color: #202820;
+}
+
+.future-projects-initiatives-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(24px, 5vw, 60px);
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.future-project-initiative {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  flex: 0 1 auto;
+  max-width: 180px;
+}
+
+.future-project-initiative-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  font-size: 32px;
+  line-height: 1;
+}
+
+.future-project-initiative h3 {
+  margin: 0;
+  color: #163b23;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* =========================================
+   ANIMATION
+========================================= */
+
+@keyframes futureProjectsFadeIn {
+  from {
+    opacity: 0.35;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+  .future-projects-hero {
+    padding: 18px 16px 12px;
+  }
+
+  .future-projects-track {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .future-project-card-image {
+    height: clamp(170px, 27vw, 230px);
+  }
+
+  .future-projects-initiatives-inner {
+    gap: 20px;
+  }
+
+  .future-project-initiative {
+    max-width: 140px;
+  }
+
+  .future-project-initiative-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 26px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .future-projects-hero {
+    padding: 16px 12px 10px;
+  }
+
+  .future-projects-hero-content {
+    margin-bottom: 24px;
+  }
+
+  .future-projects-eyebrow {
+    font-size: 11px;
+    letter-spacing: 1.2px;
+  }
+
+  .future-projects-hero-content h2 {
+    font-size: 29px;
+  }
+
+  .future-projects-track {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .future-project-card-image {
+    height: 220px;
+  }
+
+  .future-project-card h3 {
+    font-size: 15px;
+  }
+
+  .future-projects-controls {
+    margin-top: 18px;
+  }
+
+  .future-projects-initiatives {
+    padding: 32px 20px 42px;
+  }
+
+  .future-projects-initiatives-inner {
+    gap: 28px;
+  }
+
+  .future-project-initiative h3 {
+    font-size: 15px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .future-projects-track {
+    animation: none;
+  }
+
+  .future-project-card-image img,
+  .future-projects-arrow,
+  .future-projects-dot,
+  .future-projects-cta {
+    transition: none;
+  }
+}
